@@ -3,11 +3,16 @@
   <div class="box">
     <p>Box : {{box}}</p>
     <p>Item : {{item}}</p>
+    {{#if displayElement}}
+    <p>Element : {{element}}</p>
+    {{/if}}
     <p>Number of pages : {{pages}}</p>
     <p>Year : {{year}}</p>
     <p>Nature : {{nature}}</p>
+    {{#if displayStory}}
     <p>Story : {{story}}</p>
+    {{/if}}
     <p>Content : {{content}}</p>
-    <p>Digitized : {{digitized}}</p>    
+    <p>Digitized : {{digitized}}</p>
   </div>
 </div>
