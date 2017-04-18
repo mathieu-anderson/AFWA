@@ -1,0 +1,36 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin-left: 0;
+  margin-top: 0;
+}
+
+a {
+  color: #2B2D42;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #4a4e73;
+}
+
+header {
+  margin-top: 0;
+  padding: 1em;
+  font-size: 1em;
+  width: 100vw;
+  position: fixed;
+  color: #2B2D42;
+  background-color: #D90429;
+  text-align: center;
+}
+
+.spacer {
+  padding-top: 20vh;
+}
+
+.box {
+  margin-left: 20vw;
+  margin-right: 20vw;
+  padding: 1em;
+  background-color: #dddddd;
+}
