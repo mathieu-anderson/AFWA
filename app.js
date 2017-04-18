@@ -31,10 +31,10 @@ app.use('/:id', resource);
 const mongodb = require('mongodb')
 MongoClient = require('mongodb').MongoClient
 
-MongoClient.connect('mongodb://localhost:27017/af', function (err, db) {
+MongoClient.connect('mongodb://matand:alliance@ds031741.mlab.com:31741/af', function (err, db) {
   if (err) throw err
   console.log("Yay connected")
-  db.collection('archives').find({year: "1908"},{_id: 0, year: 1, nature:1, content:1}).toArray( (err, docs) => {
+  db.collection('archives').find({year: "1908"},{_id: 0, item:1, year: 1, nature:1, content:1}).toArray( (err, docs) => {
     console.log(docs)
   })
 })
