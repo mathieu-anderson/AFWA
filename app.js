@@ -23,10 +23,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //routes
-const index = require('./routes/index');
 const resources = require('./routes/resources');
 
-app.use('/api/v1/resources', index);
 app.use('/api/v1/resources', resources);
 
 // catch 404 and forward to error handler
