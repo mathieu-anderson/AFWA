@@ -10,7 +10,7 @@ router.get('/:id', function(req, res, next) {
     const record = []
     let displayStory = false
     let displayElement = false
-    MongoClient.connect('mongodb://matand:alliance@ds031741.mlab.com:31741/af', function (err, db) {
+    MongoClient.connect(`mongodb://${process.env.DBUSER}:${process.env.DBPW}@ds031741.mlab.com:31741/af`, function (err, db) {
       if (err) throw err
       console.log("Yay connected")
       db.collection('archives').find({item: item},{}).toArray( (err, docs) => {
