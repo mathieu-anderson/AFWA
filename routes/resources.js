@@ -15,6 +15,19 @@ router.get('/', function(req, res, next) {
 
 router.get('/search?', function(req, res, next) {
   console.log(req.query)
+  const {yearStart, yearEnd, story, word, digitized} = req.query
+  MongoClient.connect(`mongodb://${process.env.DBUSER}:${process.env.DBPW}@ds031741.mlab.com:31741/af`, function (err, db) {
+    if (err) throw (err)
+    db.collection('archives').find({$and:
+        [
+          {year: {$gte: yearStart}},
+          {year: {$lte: yearEnd}}
+        ]
+      }).toArray( (err, docs) => {
+      if (err) throw error
+      res.json(docs)
+    })
+  })
 })
 
 router.get('/:id', function(req, res, next) {
