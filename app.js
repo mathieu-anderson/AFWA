@@ -5,6 +5,10 @@ const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
 const dotenv = require('dotenv').config()
+<<<<<<< HEAD
+=======
+
+>>>>>>> api
 
 const app = express();
 
@@ -22,23 +26,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //routes
-const index = require('./routes/index');
-const resource = require('./routes/resource');
+const resources = require('./routes/resources');
 
-app.use('/', index);
-app.use('/:id', resource);
-
-//mongodb
-// const mongodb = require('mongodb')
-// MongoClient = require('mongodb').MongoClient
-//
-// MongoClient.connect('mongodb://matand:alliance@ds031741.mlab.com:31741/af', function (err, db) {
-//   if (err) throw err
-//   console.log("Yay connected")
-//   db.collection('archives').find({year: "1908"},{_id: 0, item:1, year: 1, nature:1, content:1}).toArray( (err, docs) => {
-//     console.log(docs)
-//   })
-// })
+app.use('/api/v1/resources', resources);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
