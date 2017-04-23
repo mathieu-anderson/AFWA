@@ -18,10 +18,13 @@ router.get('/search?', function(req, res, next) {
   const {yearStart, yearEnd, story, word, digitized} = req.query
   MongoClient.connect(`mongodb://${process.env.DBUSER}:${process.env.DBPW}@ds031741.mlab.com:31741/af`, function (err, db) {
     if (err) throw (err)
+    // find a word in a text field
+    // db.archives.find({ $text: { $search: "finalyson" } }
     db.collection('archives').find({$and:
         [
-          {year: {$gte: yearStart}},
-          {year: {$lte: yearEnd}}
+          { year: {$gte: yearStart} },
+          { year: {$lte: yearEnd} },
+          { $text: { $search: word } }
         ]
       }).toArray( (err, docs) => {
       if (err) throw error
